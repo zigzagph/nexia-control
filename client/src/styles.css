@@ -1,1 +1,126 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+.bg { 
+    /* The image used */
+    background-image: url("assets/background.jpg");
+
+    /* Full height */
+    height: 100%; 
+}
+
+.lined {
+    text-shadow: 1px 1px #000000;
+}
+
+/* h3 {
+    color: white;
+} */
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #1b75c8;
+    border-bottom: 16px solid #1b75c8;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+  
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.slider { height: 300px; }
+
+.slot { 
+    background-color: #272b30;
+    border-radius: 12px;
+    border: darkgray;
+    border-style: solid;
+    width: 125px;
+}
+
+/* Slider Styling */
+.ng5-slider.ng5-slider-vertical .ng5-slider-pointer {
+    background-image: url("assets/fader_knob.png");
+    border-radius: 3px;
+    background-size: 32px 60px;
+}
+
+.ng5-slider .ng5-slider-pointer {
+    height: 60px !important;
+}
+
+.ng5-slider .ng5-slider-pointer:after {
+    background: transparent !important;
+}
+
+.ng5-slider .ng5-slider-bubble.ng5-slider-limit {
+    color: white !important;
+}
+
+.ng5-slider .ng5-slider-bubble {
+    color: white !important;
+}
+
+
+/* Media Queries */
+/* For screens greater than 768 px wide */
+/* Bootstrap sizes : xl, lg */
+@media screen and (min-width: 992px) {
+    /* h1, h2, h3, h4, h5, h6, label {
+        color:purple;
+    } */
+
+    * {
+        font-size: 1.0rem;
+    }
+}
+
+/* For screens less than 768 px wide */
+/* Bootstrap size : md */
+@media screen and (max-width: 992px) {
+    /* h1, h2, h3, h4, h5, h6, label {
+        color:green;
+    } */
+
+    * {
+        font-size: 1.0rem;
+    }
+}
+
+/* For screens less than 620 px wide */
+/* Bootstrap size : sm */
+@media screen and (max-width: 768px) {
+    /* h1, h2, h3, h4, h5, h6, label {
+        color:yellow;
+    } */
+
+    * {
+        font-size: 0.8rem;
+    }
+}
+
+/* For screens less than 480 px wide */
+/* Bootstrap size : xs */
+@media screen and (max-width: 576px) {
+    /* h1, h2, h3, h4, h5, h6, label {
+        color:red;
+    } */
+
+    * {
+        font-size: 0.8rem;
+    }
+}

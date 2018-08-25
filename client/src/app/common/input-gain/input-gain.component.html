@@ -1,0 +1,27 @@
+<div class="row pt-2 m-2">
+    <div class="col-12 text-center h4 text-white">
+        {{label}}
+    </div>
+</div>
+
+<div class="row m-2 justify-content-center">
+    <div class="row">
+        <button class="btn btn-secondary btn-sm" type="button" (click)="increment()">
+            <fa name="plus" size="2x"></fa>
+        </button>
+    </div>
+</div>
+
+<div class="row mx-2 justify-content-center">
+    <div class="row">
+        <div class="gain h2 text-center text-white">{{value}}db</div>
+    </div>
+</div>
+
+<div class="row mx-2 justify-content-center">
+    <div class="row">
+        <button class="btn btn-secondary btn-sm" type="button" (click)="decrement()">
+            <fa name="minus" size="2x"></fa>
+        </button>
+    </div>
+</div>

@@ -1,23 +1,75 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-  <li>
-    <h1>Poo</h1>
-  </li>
-</ul>
+<div class="container-fluid">
 
+    <!-- Header -->
+    <div class="row">
+        <div class="col-sm-12" style="background-color:#1173cb;">
+            <div class="h1 lined" style="color: whitesmoke;">
+                Welcome to {{ title }}
+            </div>
+        </div>
+    </div>
+
+    <!-- No Servers -->
+    <div class="row justify-content-center" *ngIf="nexiaServers?.length < 1">
+        <div class="col-sm-12 text-center text-white" style="padding: 20px 0px 0px 0px">
+            <h3><strong>Searching for Nexia Devices...</strong></h3>
+        </div>
+        <div class="row justify-content-start">
+            <div class="col-sm-3" style="padding: 40px;">
+                <div class="loader"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Servers -->
+    <div class="row justify-content-center" *ngIf="nexiaServers?.length > 0">
+        <div class="col-sm-12 text-center text-white" style="padding: 20px 0px 0px 0px">
+            <h3><strong>Available Nexia Devices</strong><em>(select which device you would like to control)</em></h3>
+        </div>
+        
+        <div class="col-sm-3 text-center" *ngFor="let server of nexiaServers" style="padding: 20px 10px 20px 10px">
+            <button (click)="selectServer(server)" style="border: none" data-toggle="collapse" data-target="#srvCollapse" style="background-color: black">
+                <div class="card text-white bg-primary lined" style="max-width: 20rem;">
+                    <div class="card-header">BiAmp Nexia Device</div>
+                    <div class="card-body">
+                        <h4 class="card-title">Network Address : {{server}}</h4>
+                        <p class="card-text">A BiAmp Nexia hardware device can be found at the IP address above.</p>
+                    </div>
+                </div>
+            </button>
+
+            <div class="collapse" id="srvCollapse">
+                <div class="card card-body p-1" style="background-color: transparent;">
+                    <div class="row">
+                        <div class="col text-center">
+                            <button type="button" (click)="addInput()" class="btn btn-primary"><strong>+ Input Ch</strong></button>
+                        </div>
+                        <div class="col text-center">
+                            <button type="button" (click)="addOutput()" class="btn btn-primary"><strong>+ Output Ch</strong></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row justify-content-center">
+        <!-- Input Channels -->
+        <div *ngIf="inputChannels?.length > 0" class="row justify-content-center m-1">
+            <div *ngFor="let inputChannel of inputChannels" class="m-2">
+                <app-input-channel [input]="inputChannel"></app-input-channel>
+            </div>
+        </div>
+    
+        <!-- Output Channels -->
+        <div *ngIf="outputChannels?.length > 0" class="row justify-content-center m-1">
+            <div *ngFor="let outputChannel of outputChannels" class="m-2">
+                <app-output-channel [output]="outputChannel"></app-output-channel>
+            </div>
+        </div>
+    </div>
+
+</div>

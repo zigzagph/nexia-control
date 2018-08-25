@@ -1,0 +1,41 @@
+<div class="slot">
+    <!-- Channel Num -->
+    <div class="row pt-2 m-2">
+        <div class="col-12 text-center h4 text-white">
+            Output Ch {{output.number}}
+        </div>
+    </div>
+
+    <!-- Full Scale Out -->
+    <div class="row mx-2">
+        <app-input-gain class="mx-auto" [label]="strLabel" (lvlChange)="changeScale($event)" [value]="output.scale"></app-input-gain>
+    </div>
+
+    <!-- Phase -->
+    <div class="row m-2 justify-content-center">
+        <button type="button" (click)="phase()" class="btn btn-secondary" [ngClass]="(output.phase) ?  'drk' : 'black'"><strong>Phase</strong></button>
+    </div>
+
+    <!-- Mute -->
+    <div class="row m-2 justify-content-center">
+        <button type="button" (click)="mute()" class="btn btn-secondary" [ngClass]="(output.mute) ?  'drk' : 'black'"><strong>Mute</strong></button>
+    </div>
+
+    <!-- Fader -->
+    <div class="row pt-2 m-2 pl-3">
+        <div class="col-12 slider">
+            <ng5-slider [(value)]="output.level" [options]="verticalSlider.options" (userChangeEnd)="onUserChangeEnd($event)"></ng5-slider>
+        </div>
+    </div>
+
+    <!-- Fader Label -->
+    <div class="row pt-2 m-2">
+        <div class="col-12 text-center h4 text-white">
+            Level
+        </div>
+    </div>
+
+    <!-- <div class="row m-2 justify-content-center">
+        <button type="button" (click)="git()" class="btn btn-primary"><strong>get</strong></button>
+    </div> -->
+</div>
